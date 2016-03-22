@@ -8,7 +8,6 @@ pthread_rwlock_t rw_lock;
  *area
  */
  void *reader_thread(void* arg) {
- 	//TODO: Define set-up required
 	while(1) {
 			if ( pthread_rwlock_rdlock(&rw_lock) != 0)
 			{
@@ -17,7 +16,7 @@ pthread_rwlock_t rw_lock;
 			}
 
 			printf("reading......\n");
-			//TODO: Define data extraction(queue) and processing 
+
 
 	if (pthread_rwlock_unlock(&rw_lock) != 0)
 	{
@@ -32,7 +31,7 @@ pthread_rwlock_t rw_lock;
  *This thread is responsible for pulling data from a device
  */
  void *writer_thread(void * arg) {
- 		//TODO: Define set-up required
+ 
 		while(1) {
 				if ( pthread_rwlock_wrlock(&rw_lock) != 0 )
 				{
@@ -40,7 +39,7 @@ pthread_rwlock_t rw_lock;
 					exit(1);
 				}
 				printf("wrting....\n");
-				//TODO: Define data extraction (device) and storage
+
 		
 				if (pthread_rwlock_unlock(&rw_lock) != 0) 
 				{
